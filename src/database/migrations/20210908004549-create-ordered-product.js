@@ -1,26 +1,26 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('OrderedProducts', {
-      id: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-      },
+      // id: {
+      //   allowNull: false,
+      //   type: Sequelize.INTEGER,
+      // },
       price: {
         type: Sequelize.DECIMAL(10, 2),
       },
-      orderedId: {
+      ordered_id: {
         primaryKey: true,
         type: Sequelize.INTEGER,
-        fields: 'orderedId',
+        fields: 'ordered_id',
         references: {
           model: 'Ordereds',
           key: 'id',
         },
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
-        allowNull: false,
+        // allowNull: false,
       },
-      productId: {
+      product_id: {
         primaryKey: true,
         type: Sequelize.INTEGER,
         fields: 'productId',
@@ -30,7 +30,7 @@ module.exports = {
         },
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
-        allowNull: false,
+        // allowNull: false,
       },
       createdAt: {
         allowNull: false,
@@ -40,14 +40,14 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
-    })
-      .then(() => queryInterface.addConstraint('OrderedProducts', {
-        fields: ['orderedId', 'productId'],
-        type: 'unique',
-        name: 'ordered_product_pkey',
-      }));
+    });
+    // .then(() => queryInterface.addConstraint('OrderedProducts', {
+    //   fields: ['orderedId', 'productId'],
+    //   type: 'unique',
+    //   name: 'ordered_product_pkey',
+    // }));
   },
   down: async (queryInterface) => {
-    await queryInterface.dropTable('OrderedProduct');
+    await queryInterface.dropTable('OrderedProducts');
   },
 };

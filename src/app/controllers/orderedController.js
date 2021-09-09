@@ -1,11 +1,12 @@
 const { Ordered } = require('../models');
 
-const openTheOrder = async (id) => {
+const getAllOrdered = async (req, res) => {
   try {
-    await Ordered.create({ user_id: id, status: 'aberto' });
+    const ordered = await Ordered.findAll();
+    return res.status(200).json(ordered);
   } catch (e) {
-    console.log(e.message);
+    return res.status(500).send(e.message);
   }
 };
 
-module.exports = openTheOrder;
+module.exports = getAllOrdered;
