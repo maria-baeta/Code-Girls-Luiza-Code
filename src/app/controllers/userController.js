@@ -1,13 +1,9 @@
 const { User } = require('../models');
+// const { isValidEmail, isValidPassword } = require('./validations');
 
 const createdUser = async (req, res) => {
-  try {
-    const { email, password } = req.body;
-    const newUser = await User.create({ email, password });
-    return res.status(201).json(newUser);
-  } catch (e) {
-    res.status(500).json(e.message);
-  }
+  const { email, password } = req.body;
+  const newUser = await User.create({ email, password });
+  return res.status(201).json(newUser);
 };
-
 module.exports = createdUser;
