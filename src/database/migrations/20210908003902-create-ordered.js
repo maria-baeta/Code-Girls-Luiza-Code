@@ -20,7 +20,6 @@ module.exports = {
       },
       storeId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
         field: 'store_id',
