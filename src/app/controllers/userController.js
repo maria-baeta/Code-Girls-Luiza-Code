@@ -1,5 +1,6 @@
 const { User } = require('../models');
-const openTheOrder = require('./orderedController');
+const openTheOrder = require('./openTheOrder');
+
 const createdUser = async (req, res) => {
   const { email, password } = req.body;
   const newUser = await User.create({ email, password });

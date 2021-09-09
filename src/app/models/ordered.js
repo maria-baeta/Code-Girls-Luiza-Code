@@ -1,8 +1,8 @@
 const Ordered = (sequelize, DataTypes) => {
   const DataOrdered = sequelize.define('Ordered', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    userId: { type: DataTypes.INTEGER, foreignKey: true },
-    storeId: { type: DataTypes.INTEGER, foreignKey: true },
+    user_id: { type: DataTypes.INTEGER, foreignKey: true },
+    store_id: { type: DataTypes.INTEGER, foreignKey: true },
     status: DataTypes.STRING,
   });
   DataOrdered.associate = (models) => {
