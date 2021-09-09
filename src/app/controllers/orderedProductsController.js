@@ -1,11 +1,12 @@
-const { OrderedProducts } = require('../models');
+const { OrderedProduct } = require('../models');
 
 const getAllOrderedProducts = async (req, res) => {
+  console.log('To aqui');
   try {
-    const ordered = await OrderedProducts.findAll();
+    const ordered = await OrderedProduct.findAll();
     return res.status(200).json(ordered);
   } catch (e) {
-    return res.status(500).send(e.message);
+    return res.status(500).json({ message: e.message });
   }
 };
 

@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User, Product } = require('../models');
 
 const isValidEmail = (email) => {
   if (!email) return { message: 'O campo "email" é obrigatório.' };
@@ -24,8 +24,15 @@ const isRepeat = async (e) => {
   }
 };
 
+const isValidUser = async (emailUser, passwordUser) => {
+  const user = await User.findOne({ where: { email: emailUser, password: passwordUser } });
+  if (user === null) return { message: 'Cliente não cadastrado' };
+};
+
 module.exports = {
   isValidEmail,
   isValidPassword,
   isRepeat,
+  isValidUser,
+  // isValidOneProduct,
 };

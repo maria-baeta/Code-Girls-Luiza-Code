@@ -9,9 +9,6 @@ module.exports = {
     {
       name: 'KassOliver',
     },
-    {
-      name: 'GabyOliveira',
-    },
   ], {}),
 
   down: async (queryInterface) => queryInterface.bulkDelete('Stores', null, {}),

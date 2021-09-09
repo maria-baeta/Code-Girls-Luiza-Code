@@ -1,21 +1,33 @@
-const { Product, Ordered, OrderedProducts } = require('../models');
+const {
+  Product, Ordered, OrderedProduct, User,
+} = require('../models');
 
 const addProductToOrdered = async (req, res) => {
   try {
     const { id } = req.params;
-    const { id: idUser } = req.body;
+    const { email: emailUser, password: passwordUser } = req.body;
+    const user = await User.findOne({ where: { email: emailUser, password: passwordUser } });
+    const idUser = user.id;
     const product = await Product.findByPk(id);
+    if (product === null) return res.status(401).json({ message: 'Produto não encontrado' });
     const ordered = await Ordered.findOne({ where: { user_id: idUser } });
-    if (product === null) return res.status(404).json({ message: 'Produto não encontrado' });
-    if (ordered === null) return res.status(404).json({ message: 'Cliente não cadastrado' });
-    await OrderedProducts.create({
-      price: product.price,
-      orderedId: ordered.id,
-      productId: product.id,
+    const orderedProduct = await OrderedProduct.findOne({
+      where: {
+        ordered_id: ordered.id,
+        product_id: product.id,
+      },
     });
-    return res.status(200).json({ message: 'Produto adicionado com sucesso' });
+    if (orderedProduct === null) {
+      await OrderedProduct.create({
+        price: product.price,
+        ordered_id: ordered.id,
+        product_id: product.id,
+      });
+      return res.status(200).json({ message: 'Produto adicionado com sucesso' });
+    }
+    return res.status(401).json({ message: 'Produto já cadastrado' });
   } catch (e) {
-    console.error(e);
+    res.send(e);
   }
 };
 
