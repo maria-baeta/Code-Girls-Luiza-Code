@@ -1,6 +1,7 @@
 const {
   Product, Ordered, OrderedProduct, User,
 } = require('../models');
+const openTheOrder = require('./openTheOrder');
 
 const addProductToOrdered = async (req, res) => {
   try {
@@ -9,8 +10,10 @@ const addProductToOrdered = async (req, res) => {
     const user = await User.findOne({ where: { email: emailUser, password: passwordUser } });
     const idUser = user.id;
     const product = await Product.findByPk(id);
+    const ordered = await Ordered.findOne({ where: { user_id: idUser, status: 'aberto' } });
+    console.log(ordered);
+    if (ordered === null) openTheOrder(idUser);
     if (product === null) return res.status(401).json({ message: 'Produto não encontrado' });
-    const ordered = await Ordered.findOne({ where: { user_id: idUser } });
     const orderedProduct = await OrderedProduct.findOne({
       where: {
         ordered_id: ordered.id,
@@ -27,7 +30,7 @@ const addProductToOrdered = async (req, res) => {
     }
     return res.status(401).json({ message: 'Produto já cadastrado' });
   } catch (e) {
-    res.send(e);
+    return res.send(e);
   }
 };
 
