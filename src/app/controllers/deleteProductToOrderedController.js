@@ -8,7 +8,9 @@ const deleteProductToOrdered = async (req, res) => {
   const user = await User.findOne({ where: { email: emailUser, password: passwordUser } });
   const idUser = user.id;
   const product = await Product.findByPk(id);
-  const ordered = await Ordered.findOne({ where: { user_id: idUser, status: 'aberto' } });
+  const ordered = await Ordered.findOne({ where: { user_id: idUser, status: 'Aberto' } });
+  console.log(ordered);
+  if (ordered === null) return res.status(400).json({ message: 'Pedido já fechado' });
   const orderedProduct = await OrderedProduct.findOne({
     where: {
       ordered_id: ordered.id,
