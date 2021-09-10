@@ -8,8 +8,9 @@ const repeatEmailValidation = require('./src/app/middlewares/repeatEmailValidati
 const addProductToOrdered = require('./src/app/controllers/addProductToOrderedController');
 // const getAllOrderedProducts = require('./src/app/controllers/orderedProductsController');
 const userValidation = require('./src/app/middlewares/userValidation');
-const closeTheOrder = require('./src/app/controllers/closeTheOrder');
-const listOrderedUser = require('./src/app/controllers/listOrderedUser');
+const closeTheOrder = require('./src/app/controllers/closeTheOrderController');
+const listOrderedUser = require('./src/app/controllers/listOrderedUserController');
+const deleteProductToOrdered = require('./src/app/controllers/deleteProductToOrderedController');
 // const productValidation = require('./src/app/middlewares/productValidation');
 
 const router = express.Router();
@@ -19,4 +20,5 @@ router.get('/store', getAllStore);
 router.post('/product/:id', userValidation, addProductToOrdered);
 router.put('/ordered/:id', userValidation, closeTheOrder);
 router.get('/ordered/user', userValidation, listOrderedUser);
+router.delete('/product/:id', userValidation, deleteProductToOrdered);
 module.exports = router;

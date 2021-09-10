@@ -1,7 +1,7 @@
 const {
   Product, Ordered, OrderedProduct, User,
 } = require('../models');
-const openTheOrder = require('./openTheOrder');
+const openTheOrder = require('./openTheOrderController');
 
 const addProductToOrdered = async (req, res) => {
   try {
@@ -26,9 +26,9 @@ const addProductToOrdered = async (req, res) => {
         ordered_id: ordered.id,
         product_id: product.id,
       });
-      return res.status(200).json({ message: 'Produto adicionado com sucesso' });
+      return res.status(200).json({ message: 'Produto adicionado ao carrinho com sucesso' });
     }
-    return res.status(401).json({ message: 'Produto já cadastrado' });
+    return res.status(401).json({ message: 'Produto já adicionado' });
   } catch (e) {
     return res.send(e);
   }
