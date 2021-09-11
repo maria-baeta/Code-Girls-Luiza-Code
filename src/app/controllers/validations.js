@@ -1,4 +1,4 @@
-const { User, Product } = require('../models');
+const { User } = require('../models');
 
 const isValidEmail = (email) => {
   if (!email) return { message: 'O campo "email" é obrigatório.' };
@@ -13,20 +13,21 @@ const isValidPassword = (password) => {
     return { message: 'O "password" deve ter pelo menos 8 dígitos.' };
   }
   if (typeof (password) !== 'number') {
-    return { message: 'O "password" deve conter apenas números' };
+    return { message: 'É necessário informar o i"password" no formato correto (Tipo númerico). ' };
   }
 };
 
 const isRepeat = async (e) => {
   const user = await User.findOne({ where: { email: e } });
   if (user !== null) {
-    return { message: 'Email já cadastrado!' };
+    return { message: 'Email já cadastrado.' };
   }
 };
 
 const isValidUser = async (emailUser, passwordUser) => {
+  if (typeof passwordUser === 'string') return { message: 'É necessário informar o password no formato correto (Tipo númerico). ' };
   const user = await User.findOne({ where: { email: emailUser, password: passwordUser } });
-  if (user === null) return { message: 'Cliente não cadastrado' };
+  if (user === null) return { message: 'Cliente não cadastrado.' };
 };
 
 module.exports = {
@@ -34,5 +35,4 @@ module.exports = {
   isValidPassword,
   isRepeat,
   isValidUser,
-  // isValidOneProduct,
 };

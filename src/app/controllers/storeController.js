@@ -5,7 +5,7 @@ const getAllStore = async (req, res) => {
     const store = await Store.findAll();
     return res.status(200).json(store);
   } catch (e) {
-    return res.status(500).send(e.message);
+    return res.status(404).send(e.message);
   }
 };
 

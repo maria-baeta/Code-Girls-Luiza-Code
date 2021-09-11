@@ -5,7 +5,7 @@ const getAllOrdered = async (req, res) => {
     const ordered = await Ordered.findAll();
     return res.status(200).json(ordered);
   } catch (e) {
-    return res.status(500).send(e.message);
+    return res.status(404).send(e.message);
   }
 };
 

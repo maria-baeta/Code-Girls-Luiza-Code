@@ -11,15 +11,24 @@ const userValidation = require('./src/app/middlewares/userValidation');
 const closeTheOrder = require('./src/app/controllers/closeTheOrderController');
 const listOrderedUser = require('./src/app/controllers/listOrderedUserController');
 const deleteProductToOrdered = require('./src/app/controllers/deleteProductToOrderedController');
+const takeTheOrder = require('./src/app/controllers/takeTheOrderController');
 // const productValidation = require('./src/app/middlewares/productValidation');
 
 const router = express.Router();
 
-router.post('/user', emailValidation, passwordValidation, repeatEmailValidation, createdUser);
-router.get('/store', getAllStore);
-router.post('/product/:id', userValidation, addProductToOrdered);
-// router.put('/ordered/:id', userValidation, closeTheOrder);
-router.put('/ordered/', userValidation, closeTheOrder);
-router.get('/ordered/user', userValidation, listOrderedUser);
-router.delete('/product/:id', userValidation, deleteProductToOrdered);
+// Endpoint Cadastrar cliente
+router.post('/user/create', emailValidation, passwordValidation, repeatEmailValidation, createdUser);
+// Endpoint Listar lojas físicas
+router.get('/store/listAll', getAllStore);
+// Endpoint Adicionar um produto na lista de compra da cliente;
+router.post('/product/:id/addOrdered', userValidation, addProductToOrdered);
+// Endpoint Remover um produto na lista de compra da cliente;
+router.delete('/product/:id/deleteOrdered', userValidation, deleteProductToOrdered);
+// Endpoint Finalizar compra
+router.put('/closeOrdered', userValidation, closeTheOrder);
+// Endpoint Retirar compra
+router.put('/ordered/:id/takeOrdered', userValidation, takeTheOrder);
+// Endpoint Consultar todas as compras realizadas da cliente;
+router.get('/ordered/listOrderedUser', userValidation, listOrderedUser);
+
 module.exports = router;
