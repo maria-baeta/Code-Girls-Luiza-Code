@@ -4,15 +4,12 @@ const getAllStore = require('./src/app/controllers/storeController');
 const emailValidation = require('./src/app/middlewares/emailValidation');
 const passwordValidation = require('./src/app/middlewares/passwordValidation');
 const repeatEmailValidation = require('./src/app/middlewares/repeatEmailValidation');
-// const getAllOrdered = require('./src/app/controllers/orderedController');
 const addProductToOrdered = require('./src/app/controllers/addProductToOrderedController');
-// const getAllOrderedProducts = require('./src/app/controllers/orderedProductsController');
 const userValidation = require('./src/app/middlewares/userValidation');
 const closeTheOrder = require('./src/app/controllers/closeTheOrderController');
 const listOrderedUser = require('./src/app/controllers/listOrderedUserController');
 const deleteProductToOrdered = require('./src/app/controllers/deleteProductToOrderedController');
 const takeTheOrder = require('./src/app/controllers/takeTheOrderController');
-// const productValidation = require('./src/app/middlewares/productValidation');
 
 const router = express.Router();
 
