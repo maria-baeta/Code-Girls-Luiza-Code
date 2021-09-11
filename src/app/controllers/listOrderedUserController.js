@@ -1,18 +1,26 @@
 const { Ordered, User, OrderedProduct } = require('../models');
 
-const listOrderedUser = async (req, res) => {
-  const { email: emailUser, password: passwordUser } = req.body;
-  const user = await User.findOne({ where: { email: emailUser, password: passwordUser } });
+const getAllOrdered = async (email, password) => {
+  const user = await User.findOne({ where: { email, password } });
   const idUser = user.id;
-  const ordered = await Ordered.findAll({ where: { user_id: idUser, status: 'Realizada' } });
-  const orderedProduct = ordered.map(async (o) => {
-    const order = await OrderedProduct.findAll({ where: { ordered_id: o.id } });
-    return order.map((or) => or);
-    // console.log(order);
+  const ordered = await Ordered.findAll({
+    where: {
+      status: 'Realizada',
+      user_id: idUser,
+    },
   });
-  const order = await orderedProduct;
-  console.log('To aqui', order);
-  res.status(200).json(orderedProduct);
+
+  const pedido = await OrderedProduct.findAll({
+    where:
+      { ordered_id: ordered.map(({ id }) => id) },
+  }, { group: 'ordered_id' });
+  return pedido;
+};
+
+const listOrderedUser = async (req, res) => {
+  const { email, password } = req.body;
+  const pedidos = await getAllOrdered(email, password);
+  res.status(200).json(pedidos);
 };
 
 module.exports = listOrderedUser;
