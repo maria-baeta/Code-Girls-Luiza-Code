@@ -11,6 +11,7 @@ const userValidation = require('./src/app/middlewares/userValidation');
 const closeTheOrder = require('./src/app/controllers/closeTheOrderController');
 const listOrderedUser = require('./src/app/controllers/listOrderedUserController');
 const deleteProductToOrdered = require('./src/app/controllers/deleteProductToOrderedController');
+const takeTheOrder = require('./src/app/controllers/takeTheOrderController');
 // const productValidation = require('./src/app/middlewares/productValidation');
 
 const router = express.Router();
@@ -22,4 +23,5 @@ router.post('/product/:id', userValidation, addProductToOrdered);
 router.put('/ordered/', userValidation, closeTheOrder);
 router.get('/ordered/user', userValidation, listOrderedUser);
 router.delete('/product/:id', userValidation, deleteProductToOrdered);
+router.put('/ordered/take', userValidation, takeTheOrder);
 module.exports = router;
