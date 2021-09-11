@@ -68,6 +68,13 @@ Esse serviço deve atender os seguintes requisitos:
       
             npm start ou npm run dev
  
-6. Ferramentas adicionais:
+6. Swagger:
  
-      - Utilize o Postman ou o Insomnia para poder testar os serviços Web API. 
+      - Utilize o Swagger para poder testar os serviços Web API. 
+      - No terminal execute o seguinte comando:
+       
+            npm run swagger-autogen
+
+      - No navegado acesse: 
+       
+            (http://localhost:3001/doc)

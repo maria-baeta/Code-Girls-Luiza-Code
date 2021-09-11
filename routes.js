@@ -26,6 +26,6 @@ router.put('/closeOrdered', userValidation, closeTheOrder);
 // Endpoint Retirar compra
 router.put('/ordered/:id/takeOrdered', userValidation, takeTheOrder);
 // Endpoint Consultar todas as compras realizadas da cliente;
-router.get('/ordered/listOrderedUser', userValidation, listOrderedUser);
+router.get('/ordered/listOrderedUser/:id', listOrderedUser);
 
 module.exports = router;
