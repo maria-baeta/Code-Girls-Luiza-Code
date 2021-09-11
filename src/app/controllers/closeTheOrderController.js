@@ -8,7 +8,7 @@ const closeTheOrder = async (req, res) => {
   const { idStore } = req.body;
   const ordered = await Ordered.findOne({ where: { status: 'Aberto', user_id: idUser } });
   if (!ordered) return res.status(400).json({ message: 'Seu pedido não está em aberto!' });
-  Ordered.update({ status: 'Realizada', store_id: idStore }, { where: { status: 'Aberto', id: ordered.id } });
+  Ordered.update({ status: 'Realizado', store_id: idStore }, { where: { status: 'Aberto', id: ordered.id } });
   return res.status(200).json({ message: 'Pedido finalizado' });
 };
 
