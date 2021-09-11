@@ -8,7 +8,7 @@ const addProduct = async (id, e, p) => {
   const idUser = user.id;
   const ordered = await Ordered.findOne({ where: { user_id: idUser, status: 'Aberto' } });
   const product = await Product.findByPk(id);
-  if (product === null) return { message: 'Produto não encontrado', status: 400 };
+  if (product === null) return { message: 'Produto não encontrado.', status: 404 };
   const orderedProduct = await OrderedProduct.findOne({
     where: {
       ordered_id: ordered.id,
@@ -21,9 +21,9 @@ const addProduct = async (id, e, p) => {
       ordered_id: ordered.id,
       product_id: product.id,
     });
-    return { message: 'Produto adicionado ao carrinho com sucesso', status: 200 };
+    return { message: 'Produto adicionado ao carrinho com sucesso.', status: 200 };
   }
-  return { message: 'Produto já adicionado', status: 400 };
+  return { message: 'Produto já adicionado.', status: 404 };
 };
 
 const addProductToOrdered = async (req, res) => {
@@ -34,7 +34,7 @@ const addProductToOrdered = async (req, res) => {
     const idUser = user.id;
     const product = await Product.findByPk(id);
     const ordered = await Ordered.findOne({ where: { user_id: idUser, status: 'Aberto' } });
-    if (product === null) return res.status(401).json({ message: 'Produto não encontrado' });
+    if (product === null) return res.status(404).json({ message: 'Produto não encontrado.' });
     if (ordered === null) {
       openTheOrder(idUser);
       const response = await addProduct(id, emailUser, passwordUser);
