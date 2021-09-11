@@ -1,3 +1,4 @@
+const { Op } = require('sequelize');
 const { Ordered, User, OrderedProduct } = require('../models');
 
 const getAllOrdered = async (email, password) => {
@@ -5,7 +6,10 @@ const getAllOrdered = async (email, password) => {
   const idUser = user.id;
   const ordered = await Ordered.findAll({
     where: {
-      status: 'Realizada',
+      [Op.or]: [
+        { status: 'Retirado' },
+        { status: 'Realizado' },
+      ],
       user_id: idUser,
     },
   });
