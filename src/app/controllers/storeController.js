@@ -1,5 +1,7 @@
+// Lista lojas físicas
 const { Store } = require('../models');
 
+// Lista todas as lojas físicas
 const getAllStore = async (req, res) => {
   try {
     const store = await Store.findAll();

@@ -1,7 +1,9 @@
+// Remove produtos do pedido
 const {
   Product, Ordered, OrderedProduct, User,
 } = require('../models');
 
+// Remove produtos do pedido de acordo com as informções do usuário e id do produto
 const deleteProductToOrdered = async (req, res) => {
   const { id } = req.params;
   const { email: emailUser, password: passwordUser } = req.body;

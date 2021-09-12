@@ -1,5 +1,7 @@
+// Fecha o pedido
 const { Ordered, User, Store } = require('../models');
 
+// Verifica o status do pedido e se o mesmo for "Aberto" irá altera-lo para "Realizado"
 const closeTheOrder = async (req, res) => {
   const { email: emailUser, password: passwordUser, idStore } = req.body;
   if (idStore === undefined) return res.status(411).json({ message: 'É necessário informar a loja que será retirado o pedido.' });

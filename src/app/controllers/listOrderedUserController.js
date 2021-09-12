@@ -1,9 +1,9 @@
+// Lista pedidos dos usuários
 const { Op } = require('sequelize');
 const { Ordered, OrderedProduct } = require('../models');
 
+// Recupera pedidos em que o status seja "Realizado" ou "Retirado" de acordo com o id do usuário
 const getAllOrdered = async (idUser) => {
-  // const user = await User.findOne({ where: { email, password } });
-  // const idUser = user.id;
   const ordered = await Ordered.findAll({
     where: {
       [Op.or]: [
@@ -21,11 +21,10 @@ const getAllOrdered = async (idUser) => {
   return pedido;
 };
 
+// Lista pedidos do usuário recuperados na função getAllOrdered
 const listOrderedUser = async (req, res) => {
-  // const { email, password } = req.body;
   const { id } = req.params;
   const pedidos = await getAllOrdered(id);
-  // if (pedidos.length === 0) return res.status(400).json({ message: pedidos.message });
   res.status(pedidos.status || 200).json(pedidos.message || pedidos);
 };
 

@@ -78,3 +78,7 @@ Esse serviço deve atender os seguintes requisitos:
       - No navegado acesse: 
        
             (http://localhost:3001/doc)
+
+Algumas definições utilizadas para o desenvolvimento podem ser consultadas no arquivo script.md.
+
+
