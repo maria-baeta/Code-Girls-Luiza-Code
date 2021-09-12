@@ -7,7 +7,7 @@
 ## Métodos de localização:
 
 - Table.findAll() => Gera uma SELECT, ou seja, uma consulta padrão que recupera todas as entradas da tabela.
-- Table.findOne() =>  Obtém a primeira entrada que encontrar que preencha as opções de sonculta opcionais se fornecidas. Normalmente utiliza-se em conjunto com WHERE.
+- Table.findOne() =>  Obtém a primeira entrada que encontrar que preencha as opções de consulta opcionais se fornecidas. Normalmente utiliza-se em conjunto com WHERE.
 - Table.findByPk() => Obtém apenas uma única entrada da tabela, usando a chave primaria.
   
 ## Método de atuzalição:
@@ -31,19 +31,19 @@
 
 #### Migrations
 
-São classe que executaram promisses capazes de gerar nossas estruturas no banco de dados, ele irá geras as tabelas, relacionamentos e campos por etapas, para cada nova tabela teremos uma nova migration.
+São classes que executam promisses capazes de gerar nossas estruturas no banco de dados, ele irá gerar as tabelas, relacionamentos e campos por etapas, para cada nova tabela teremos uma nova migration.
 
 ## Associations
 
-- Para criar um relacionamento Um para Um , as associações hasOnee belongsTosão usadas juntas;
+- Para criar um relacionamento Um para Um , as associações hasOne belongsTo são usadas juntas;
 
-  - HasOne: significa que existe um relacionamento Um para Um entre A e B, e com a chave estrangeria sendo definida no modelo de destino(B).
-  - BelonhsTo: siginifica que existe um relacionamento Um pra Um entre A e B, com chave estrangeira sendo definida no modelo de origem (A).
+  - HasOne: Significa que existe um relacionamento Um para Um entre A e B, e com a chave estrangeira sendo definida no modelo de destino(B).
+  - BelongsTo: Siginifica que existe um relacionamento Um pra Um entre A e B, com chave estrangeira sendo definida no modelo de origem (A).
   
-- Para criar um relacionamento Um-para-Muitos , as associações hasManye belongsTosão usadas juntas, e para criar um relacionamento muitos para muitos , duas belongsToManychamadas são usadas juntas. ;
+- Para criar um relacionamento Um-para-Muitos , as associações hasMany e belongsTo são usadas juntas. Para criar um relacionamento Muitos-para-Muitos , duas belongsToMany chamadas são usadas juntas. ;
 
-  - HasMany: significa que existe um relacionamento Um para Muitos entre A e B, com a chave estrangeira sendo definida no modelo de destino (B).
-  - BelogsToMany: siguinifica que existe um relacionamento Muitos para Muitos entre A e B, usando tabela C como tabela de junção, que terá as chaves estrangerias(aId, bId, por exemplo). 
+  - HasMany: Significa que existe um relacionamento Um para Muitos entre A e B, com a chave estrangeira sendo definida no modelo de destino (B).
+  - BelongsToMany: Significa que existe um relacionamento Muito-para-Muitos entre A e B, usando tabela C como tabela de junção, que terá as chaves estrangeiras aId, bId, por exemplo. 
   
 ## Seeders
 
@@ -51,7 +51,7 @@ São classes que executam promisses capazes de gerar dados padrões para as tabe
 
 ## Models
 
-Responsável por armazenar todos as models da nossa aplicação.
+Responsável por armazenar todos os models da nossa aplicação.
 
 ## Controllers
 
