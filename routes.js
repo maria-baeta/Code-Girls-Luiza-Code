@@ -1,3 +1,4 @@
+// Arquivo de gerenciamento de Endpoints
 const express = require('express');
 const createdUser = require('./src/app/controllers/userController');
 const getAllStore = require('./src/app/controllers/storeController');
@@ -18,13 +19,13 @@ router.post('/user/create', emailValidation, passwordValidation, repeatEmailVali
 // Endpoint Listar lojas físicas
 router.get('/store/listAll', getAllStore);
 // Endpoint Adicionar um produto na lista de compra da cliente;
-router.post('/product/:id/addOrdered', userValidation, addProductToOrdered);
+router.post('/product/:id/addOrdered', emailValidation, passwordValidation, userValidation, addProductToOrdered);
 // Endpoint Remover um produto na lista de compra da cliente;
-router.delete('/product/:id/deleteOrdered', userValidation, deleteProductToOrdered);
+router.delete('/product/:id/deleteOrdered', emailValidation, passwordValidation, userValidation, deleteProductToOrdered);
 // Endpoint Finalizar compra
-router.put('/closeOrdered', userValidation, closeTheOrder);
+router.put('/closeOrdered', emailValidation, passwordValidation, userValidation, closeTheOrder);
 // Endpoint Retirar compra
-router.put('/ordered/:id/takeOrdered', userValidation, takeTheOrder);
+router.put('/ordered/:id/takeOrdered', emailValidation, passwordValidation, userValidation, takeTheOrder);
 // Endpoint Consultar todas as compras realizadas da cliente;
 router.get('/ordered/listOrderedUser/:id', listOrderedUser);
 

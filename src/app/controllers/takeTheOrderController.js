@@ -1,5 +1,7 @@
+// Retirada do pedido da loja
 const { Ordered, User } = require('../models');
 
+// Atualiza o status do pedido para "Retirado" de acordo com informções do usuário e id do pedido
 const takeTheOrder = async (req, res) => {
   const { id: idOrder } = req.params;
   const { email: emailUser, password: passwordUser } = req.body;
