@@ -2,13 +2,13 @@
 
 ## Método de criação:
 
-- Table.create() =>  Gera um INSERT, ou seja, insere informações na tabela.
+- Table.create() =>  Gera uma INSERT, ou seja, insere informações na tabela.
   
 ## Métodos de localização:
 
 - Table.findAll() => Gera uma SELECT, ou seja, uma consulta padrão que recupera todas as entradas da tabela.
 - Table.findOne() =>  Obtém a primeira entrada que encontrar que preencha as opções de consulta opcionais se fornecidas. Normalmente utiliza-se em conjunto com WHERE.
-- Table.findByPk() => Obtém apenas uma única entrada da tabela, usando a chave primaria.
+- Table.findByPk() => Obtém apenas uma única entrada da tabela, usando a chave primaria para realizar a consulta.
   
 ## Método de atuzalição:
 
