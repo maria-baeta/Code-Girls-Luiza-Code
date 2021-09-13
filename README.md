@@ -50,7 +50,7 @@ Esse serviço deve atender os seguintes requisitos:
           MYSQL_PASSWORD=SENHADOSEUBANCO
 
 4. Criando o banco de dados: 
-     - Verifique se sua instáncia do MySql está ativa;
+     - Verifique se sua instância do MySql está ativa;
      - No terminal execute o seguinte comando para criar o banco de dados:
     
            npx sequelize db:create
