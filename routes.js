@@ -11,6 +11,7 @@ const closeTheOrder = require('./src/app/controllers/closeTheOrderController');
 const listOrderedUser = require('./src/app/controllers/listOrderedUserController');
 const deleteProductToOrdered = require('./src/app/controllers/deleteProductToOrderedController');
 const takeTheOrder = require('./src/app/controllers/takeTheOrderController');
+const getAllProducts = require('./src/app/controllers/productsController');
 
 const router = express.Router();
 
@@ -18,6 +19,8 @@ const router = express.Router();
 router.post('/user/create', emailValidation, passwordValidation, repeatEmailValidation, createdUser);
 // Endpoint Listar lojas físicas
 router.get('/store/listAll', getAllStore);
+// Endpoint Listar podrutos cadastrados
+router.get('/products/listAll', getAllProducts);
 // Endpoint Adicionar um produto na lista de compra da cliente;
 router.post('/product/:id/addOrdered', emailValidation, passwordValidation, userValidation, addProductToOrdered);
 // Endpoint Remover um produto na lista de compra da cliente;

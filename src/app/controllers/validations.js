@@ -15,7 +15,7 @@ const isValidPassword = (password) => {
     return { message: 'O "password" deve ter pelo menos 8 dígitos.' };
   }
   if (typeof (password) !== 'number') {
-    return { message: 'É necessário informar o i"password" no formato correto (Tipo númerico). ' };
+    return { message: 'É necessário informar o "password" no formato correto (Tipo númerico). ' };
   }
 };
 
