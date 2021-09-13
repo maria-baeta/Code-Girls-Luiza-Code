@@ -65,6 +65,21 @@
         }
       }
     },
+    "/products/listAll": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
     "/product/{id}/addOrdered": {
       "post": {
         "tags": [],
@@ -93,6 +108,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "OK"
+          },
           "401": {
             "description": "Unauthorized"
           }

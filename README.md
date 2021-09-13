@@ -50,7 +50,7 @@ Esse serviço deve atender os seguintes requisitos:
           MYSQL_PASSWORD=SENHADOSEUBANCO
 
 4. Criando o banco de dados: 
-     - Verifique se sua instácia do MySql está ativa;
+     - Verifique se sua instáncia do MySql está ativa;
      - No terminal execute o seguinte comando para criar o banco de dados:
     
            npx sequelize db:create
@@ -63,12 +63,7 @@ Esse serviço deve atender os seguintes requisitos:
  
            npx sequelize db:seed:all
 
-5. Iniciando a aplicação: 
-     - No terminal execute o seguinte comando:
-      
-            npm start ou npm run dev
- 
-6. Swagger:
+5. Swagger:
  
       - Utilize o Swagger para poder testar os serviços Web API. 
       - No terminal execute o seguinte comando:
@@ -79,6 +74,6 @@ Esse serviço deve atender os seguintes requisitos:
        
             (http://localhost:3001/doc)
 
-Algumas definições utilizadas para o desenvolvimento podem ser consultadas no arquivo script.md.
+Algumas definições utilizadas para o desenvolvimento podem ser consultadas no arquivo  [Script.md](https://github.com/maria-baeta/Code-Girls-Luiza-Code/blob/main/script.md)
 
 
