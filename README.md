@@ -70,9 +70,9 @@ Esse serviço deve atender os seguintes requisitos:
        
             npm run swagger-autogen
 
-      - No navegado acesse: 
+      - No navegador acesse: 
        
-            (http://localhost:3001/doc)
+            http://localhost:3001/doc
 
 Algumas definições utilizadas para o desenvolvimento podem ser consultadas no arquivo  [Script.md](https://github.com/maria-baeta/Code-Girls-Luiza-Code/blob/main/script.md)
 
