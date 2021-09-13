@@ -1,7 +1,7 @@
 # Code-Girls-Luiza-Code
  Projeto criado para o desenvolvimento do Desafio Final da 3ª Edição do Luiza Code - Node.js
 
-### Desevolvido por: 
+### Desenvolvido por: 
 - [janainaestevao](https://github.com/janainaestevao)
 - [kassoliver](https://github.com/kassoliver)
 - [maria-baeta](https://github.com/maria-baeta)
