@@ -8,15 +8,15 @@
 
 - Table.findAll() => Gera uma SELECT, ou seja, uma consulta padrão que recupera todas as entradas da tabela.
 - Table.findOne() =>  Obtém a primeira entrada que encontrar que preencha as opções de consulta opcionais se fornecidas. Normalmente utiliza-se em conjunto com WHERE.
-- Table.findByPk() => Obtém apenas uma única entrada da tabela, usando a chave primaria para realizar a consulta.
+- Table.findByPk() => Obtém apenas uma única entrada da tabela, usando a chave primária para realizar a consulta.
   
-## Método de atuzalição:
+## Método de atuazalição:
 
 - Table.update() => Atualiza os dados das linhas das tabelas. Normalmente utiliza-se em conjunto o WHERE para especificar o que deve ser alterado
 .
 ## Método de exclusão:
 
-- Table.destroy() => Exclui uma linha da tabela. Normalmente utiliza-se em conjunto o WHERE para especificar o que deve ser exluido .
+- Table.destroy() => Exclui uma linha da tabela. Normalmente utiliza-se em conjunto o WHERE para especificar o que deve ser excluído .
   
 # Status HTTPS:
 
