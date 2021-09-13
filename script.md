@@ -40,7 +40,7 @@ São classes que executam promisses capazes de gerar nossas estruturas no banco 
   - HasOne: Significa que existe um relacionamento Um para Um entre A e B, e com a chave estrangeira sendo definida no modelo de destino(B).
   - BelongsTo: Siginifica que existe um relacionamento Um pra Um entre A e B, com chave estrangeira sendo definida no modelo de origem (A).
   
-- Para criar um relacionamento Um-para-Muitos , as associações hasMany e belongsTo são usadas juntas. Para criar um relacionamento Muitos-para-Muitos , duas belongsToMany chamadas são usadas juntas. ;
+- Para criar um relacionamento Um-para-Muitos , as associações hasMany e belongsTo são usadas juntas. Para criar um relacionamento Muitos-para-Muitos , duas belongsToMany chamadas são usadas juntas.
 
   - HasMany: Significa que existe um relacionamento Um para Muitos entre A e B, com a chave estrangeira sendo definida no modelo de destino (B).
   - BelongsToMany: Significa que existe um relacionamento Muito-para-Muitos entre A e B, usando tabela C como tabela de junção, que terá as chaves estrangeiras aId, bId, por exemplo. 
@@ -58,7 +58,7 @@ Responsável por armazenar todos os models da nossa aplicação.
 Responsável por armazenar todos os controllers de nossa aplicação centralizados em um único lugar. Geralmente é onde econtramos algumas regras de negócio.
 
 
-# Referecias:
+# Referências:
 - [https://sequelize.org/master/](https://sequelize.org/master/)
 - [https://ezdevs.com.br/introducao-a-orm-no-node-js-com-sequelize/](https://ezdevs.com.br/introducao-a-orm-no-node-js-com-sequelize/)
 - [https://ezdevs.com.br/introducao-a-orm-no-node-js-com-sequelize-parte-2/](https://ezdevs.com.br/introducao-a-orm-no-node-js-com-sequelize-parte-2/)
